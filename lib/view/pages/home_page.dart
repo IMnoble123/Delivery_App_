@@ -16,10 +16,6 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.grey[100],
         elevation: 0,
         leading: const Icon(null),
-        actions: [
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined))
-        ],
       ),
       body: SafeArea(
           child: Column(
@@ -43,9 +39,15 @@ class _HomePageState extends State<HomePage> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      category(isActive: true, title: 'Foods'),
-                      category(isActive: true, title: 'Grocerys'),
-                      category(isActive: true, title: 'Healthcare')
+                      InkWell(
+                          onTap: () {
+                            print('new objects');
+                          },
+                          child: category(isActive: true, title: 'Foods')),
+                      InkWell(
+                          child: category(isActive: true, title: 'Grocerys')),
+                      InkWell(
+                          child: category(isActive: true, title: 'Healthcare'))
                     ],
                   ),
                 ),
@@ -82,9 +84,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
-
-
 Widget category({isActive, title}) {
   return AspectRatio(
     aspectRatio: isActive ? 3 : 2.5 / 1,
@@ -92,7 +91,7 @@ Widget category({isActive, title}) {
       margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         color: isActive ? Colors.yellow[700] : Colors.white,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(30),
       ),
       child: Align(
           child: Text(
@@ -105,10 +104,6 @@ Widget category({isActive, title}) {
     ),
   );
 }
-
-
-
-
 
 Widget makeItem({image}) {
   return AspectRatio(

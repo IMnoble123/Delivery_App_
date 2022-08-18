@@ -1,174 +1,111 @@
-import 'package:delivery/view/pages/home_page.dart';
-import 'package:delivery/view/pages/second_signpage.dart';
+import 'package:delivery/view/pages/utls/custom_container.dart';
+import 'package:delivery/view/pages/widgets/email_passwidget.dart';
+import 'package:delivery/view/pages/widgets/last_text.dart';
+import 'package:delivery/view/pages/widgets/login_button.dart';
+import 'package:delivery/view/pages/widgets/title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
-  @override
-  State<SignIn> createState() => _SignInState();
-}
-
-class _SignInState extends State<SignIn> {
-  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.cover, image: AssetImage('assets/Background.png'))),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 200),
-              const Text(
-                'Grub On Wheels',
-                style: TextStyle(fontSize: 35, color: Colors.white, shadows: [
-                  BoxShadow(
-                      blurRadius: 5,
-                      color: Color.fromARGB(255, 125, 87, 46),
-                      offset: Offset(3, 3))
-                ]),
-              ),
-              SizedBox(
-                height: 300,
-                width: double.infinity,
+      body: SizedBox(
+        height: height,
+        child: Stack(
+          children: [
+            Positioned(
+                top: -height * .15,
+                right: -MediaQuery.of(context).size.width * .4,
+                child: const BezierContainer()),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: TextField(
-                        style: const TextStyle(color: Colors.white),
-                        cursorColor: Colors.grey.shade600,
-                        decoration: const InputDecoration(
-                          labelStyle:
-                              TextStyle(color: Colors.white, fontSize: 13),
-                          labelText: 'Username/Email',
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey)),
+                    SizedBox(
+                      height: height * .2,
+                    ),
+                    // title(),
+                    const TitlePage(),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    // emailPasswordWidget(),
+                    const EmailPasswordWidgetPage(),
+                    const SizedBox(height: 20),
+                    // loginButton(),
+                    const LoginButtonPage(),
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      alignment: Alignment.centerRight,
+                      child: InkWell(
+                        onTap: () {},
+                        child: const Text(
+                          'Forgot Password ?',
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w500),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: TextField(
-                        style: const TextStyle(color: Colors.white),
-                        obscureText: _isObscure,
-                        cursorColor: Colors.grey.shade600,
-                        decoration: InputDecoration(
-                          labelStyle: const TextStyle(
-                              color: Colors.white, fontSize: 13),
-                          labelText: 'password',
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _isObscure = !_isObscure;
-                                });
-                              },
-                              icon: Icon(
-                                  _isObscure
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
-                                  color: Colors.grey,
-                                  size: 15)),
-                          enabledBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey)),
-                          focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey)),
-                        ),
-                      ),
+                    divider(),
+                    SignInButton(Buttons.Google, onPressed: () {}),
+                    SizedBox(
+                      height: height * .055,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: SizedBox(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width * 1,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => const HomePage()));
-                            },
-                            style:
-                                ElevatedButton.styleFrom(primary: Colors.white),
-                            child: const Text(
-                              'Login',
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 15),
-                            )),
-                      ),
-                    ),
-                    // const Text('Sign in to Continue',style: TextStyle(color: Colors.white),),
-                    // const Text('Grub On Wheels',
-                    // style: TextStyle(fontSize: 40,color: Colors.white,
-                    // shadows: [
-                    //   BoxShadow(
-                    //     blurRadius: 5,
-                    //     color: Color.fromARGB(255, 125, 87, 46),
-                    //     offset: Offset(3, 3)
-                    //   )
-                    // ]),
-                    // ),
-                    Column(
-                      children: [
-                        SignInButton(Buttons.Google,
-                            text: 'Sign in with Google', onPressed: () {})
-                      ],
-                    )
+                    // lasttext(),
+                    const LasttextPage()
                   ],
                 ),
               ),
-              Column(
-                children: const [
-                  Text(
-                    'By signing in you are agreeing to our',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                  Text(
-                    'Terms and  Privacy Policy',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  // const SizedBox(height: 5.0),
-                  // TextButton(onPressed: (){}, child:const Text('Sign Up',
-                  // style: TextStyle(color: Colors.white),))
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'new here/',
-                    style: TextStyle(fontSize: 15, color: Colors.grey),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (ctx) => const SignupPage()));
-                      },
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(color: Colors.white),
-                      )),
-                  const Text(
-                    'now',
-                    style: TextStyle(fontSize: 15, color: Colors.grey),
-                  )
-                ],
-              )
-            ],
-          ),
+            ),
+            // Positioned(
+            //   top: 40,
+            //   left: 0,
+            //   child: backButton(),
+            // )
+          ],
         ),
       ),
     );
   }
+}
+
+Widget divider() {
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 10),
+    child: Row(
+      children: const [
+        SizedBox(
+          width: 20,
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
+        ),
+        Text('or'),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+      ],
+    ),
+  );
 }

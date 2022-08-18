@@ -1,6 +1,7 @@
 import 'package:delivery/view/pages/home_page.dart';
 import 'package:delivery/view/pages/second_signpage.dart';
 import 'package:delivery/view/pages/login_page.dart';
+import 'package:delivery/view/pages/spalish_screen.dart';
 import 'package:delivery/view/pages/start_up_page.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const StaterPage(),
+      home: const SplashScreen(),
     );
   }
 }
