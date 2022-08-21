@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                     const EmailPasswordWidgetPage(),
                     const SizedBox(height: 20),
                     // loginButton(),
-                    const LoginButtonPage(),
+                     LoginButtonPage(),
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       alignment: Alignment.centerRight,

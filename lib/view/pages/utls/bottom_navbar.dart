@@ -25,21 +25,21 @@ class _NavigationPageState extends State<NavigationPage> {
     return Scaffold(
       body: pages[_currentIndex],
       bottomNavigationBar: SlidingClippedNavBar(
-          selectedIndex: _currentIndex,
-          onButtonPressed: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          iconSize: 25,
-          activeColor: const Color(0xFF01579B),
-          barItems: [
-            BarItem(title: 'Home', icon:Icons.home),
-            BarItem(title: 'Categories', icon: Icons.category),
-            BarItem(title: 'Account', icon: Icons.account_circle_outlined),
-            BarItem(title: 'Basket', icon: Icons.shopping_cart_outlined)
-          ],
-          ),
+        selectedIndex: _currentIndex,
+        onButtonPressed: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        iconSize: 25,
+        activeColor: const Color(0xFF01579B),
+        barItems: [
+          BarItem(title: 'Home', icon: Icons.home),
+          BarItem(title: 'Search', icon: Icons.search),
+          BarItem(title: 'Account', icon: Icons.account_circle_outlined),
+          BarItem(title: 'Basket', icon: Icons.shopping_cart_outlined)
+        ],
+      ),
     );
   }
 }

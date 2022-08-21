@@ -114,6 +114,8 @@ Widget textInput({controller, hint, icon}) {
         style: const TextStyle(fontSize: 15),
         controller: controller,
         decoration: InputDecoration(
+          fillColor: const Color(0xfff3f3f4),
+          filled: true,
           border: InputBorder.none,
           hintText: hint,
           prefixIcon: Icon(
