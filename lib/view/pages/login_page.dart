@@ -1,5 +1,6 @@
 import 'package:delivery/view/pages/utls/custom_container.dart';
 import 'package:delivery/view/pages/widgets/email_passwidget.dart';
+import 'package:delivery/view/pages/widgets/google_signinbutton.dart';
 import 'package:delivery/view/pages/widgets/last_text.dart';
 import 'package:delivery/view/pages/widgets/login_button.dart';
 import 'package:delivery/view/pages/widgets/title.dart';
@@ -55,7 +56,8 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     divider(),
-                    SignInButton(Buttons.Google, onPressed: () {}),
+                    // SignInButton(Buttons.Google, onPressed: () {}),
+                 const GoogleSignInButton(),
                     SizedBox(
                       height: height * .055,
                     ),

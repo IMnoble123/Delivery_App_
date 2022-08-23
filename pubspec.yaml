@@ -39,8 +39,7 @@ dependencies:
   page_transition: ^2.0.9
   sliding_clipped_nav_bar: ^3.1.0+2
   lottie: ^1.4.1
-  get: ^4.6.5
-  form_field_validator: ^1.1.0
+  http: ^0.13.5
   
 
 dev_dependencies:

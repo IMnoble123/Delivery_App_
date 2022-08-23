@@ -56,108 +56,111 @@ class _StaterPageState extends State<StaterPage> with TickerProviderStateMixin {
             Colors.black.withOpacity(.8),
             Colors.black.withOpacity(.2),
           ])),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              //  FadeAnimation(
-              //     .5,
-              //     const Text(
-              //       'Grub On Wheels',
-              //       style: TextStyle(
-              //           color: Colors.white,
-              //           fontSize: 50,
-              //           fontWeight: FontWeight.bold),
-              //     )),
-              const Text(
-                'Grub On Wheels',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              //  FadeAnimation(
-              //     1,
-              //     const Text(
-              //       'Taking Order For Nearby Delivery',
-              //       style: TextStyle(
-              //           color: Colors.white, height: 1.4, fontSize: 18),
-              //     )),
-              const Text(
-                "Taking Order's for Nearby Delivery",
-                style:
-                    TextStyle(color: Colors.white, fontSize: 18, height: 1.4),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              // FadeAnimation(
-              //     1.2,
-              //     ScaleTransition(
-              //       scale: _animation,
-              //       child: Container(
-              //         decoration: BoxDecoration(
-              //             borderRadius: BorderRadius.circular(10),
-              //             gradient: const LinearGradient(
-              //                 colors: [Colors.yellow, Colors.orange])),
-              //         child: AnimatedOpacity(
-              //           opacity: _textVisible ? 1.0 : 0.0,
-              //           duration: const Duration(milliseconds: 50),
-              //           child: MaterialButton(
-              //             onPressed: () => _onTap(),
-              //             minWidth: double.infinity,
-              //             child: const Text(
-              //               'Lets Start',
-              //               style: TextStyle(color: Colors.white),
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     )),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                        colors: [Colors.yellow, Colors.orange])),
-                child: AnimatedOpacity(
-                  opacity: _textVisible ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 50),
-                  child: MaterialButton(
-                    onPressed: () => _onTap(),
-                    minWidth: double.infinity,
-                    child: const Text(
-                      "Get's Started",
-                      style: TextStyle(color: Colors.white),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                //  FadeAnimation(
+                //     .5,
+                //     const Text(
+                //       'Grub On Wheels',
+                //       style: TextStyle(
+                //           color: Colors.white,
+                //           fontSize: 50,
+                //           fontWeight: FontWeight.bold),
+                //     )),
+                const Text(
+                  'Grub On Wheels',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                //  FadeAnimation(
+                //     1,
+                //     const Text(
+                //       'Taking Order For Nearby Delivery',
+                //       style: TextStyle(
+                //           color: Colors.white, height: 1.4, fontSize: 18),
+                //     )),
+                const Text(
+                  "Taking Order's for Nearby Delivery",
+                  style:
+                      TextStyle(color: Colors.white, fontSize: 18, height: 1.4),
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                // FadeAnimation(
+                //     1.2,
+                //     ScaleTransition(
+                //       scale: _animation,
+                //       child: Container(
+                //         decoration: BoxDecoration(
+                //             borderRadius: BorderRadius.circular(10),
+                //             gradient: const LinearGradient(
+                //                 colors: [Colors.yellow, Colors.orange])),
+                //         child: AnimatedOpacity(
+                //           opacity: _textVisible ? 1.0 : 0.0,
+                //           duration: const Duration(milliseconds: 50),
+                //           child: MaterialButton(
+                //             onPressed: () => _onTap(),
+                //             minWidth: double.infinity,
+                //             child: const Text(
+                //               'Lets Start',
+                //               style: TextStyle(color: Colors.white),
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     )),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: const LinearGradient(
+                          colors: [Colors.yellow, Colors.orange])),
+                  child: AnimatedOpacity(
+                    opacity: _textVisible ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 50),
+                    child: MaterialButton(
+                      onPressed: () => _onTap(),
+                      minWidth: double.infinity,
+                      child: const Text(
+                        "Get's Started",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
+                    
                   ),
-                  
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              // FadeAnimation(
-              //     1.4,
-              //     AnimatedOpacity(
-              //       opacity: _textVisible ? 1.0 : 0.0,
-              //       duration: const Duration(milliseconds: 50),
-              //       child: const Align(
-              //         child: Text(
-              //           'Delivery over 12/7',
-              //           style: TextStyle(color: Colors.white60, fontSize: 15),
-              //         ),
-              //       ),
-              //     ))
-              const Align(
-                child: Text(
-                  "Delivery over 12/7",
-                  style: TextStyle(color: Colors.white60, fontSize: 15),
+                const SizedBox(
+                  height: 30,
                 ),
-              )
-            ],
+                // FadeAnimation(
+                //     1.4,
+                //     AnimatedOpacity(
+                //       opacity: _textVisible ? 1.0 : 0.0,
+                //       duration: const Duration(milliseconds: 50),
+                //       child: const Align(
+                //         child: Text(
+                //           'Delivery over 12/7',
+                //           style: TextStyle(color: Colors.white60, fontSize: 15),
+                //         ),
+                //       ),
+                //     ))
+                const Align(
+                  child: Text(
+                    "Delivery over 24/7",
+                    style: TextStyle(color: Colors.white60, fontSize: 15),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:delivery/view/pages/login_page.dart';
+import 'package:delivery/view/pages/widgets/google_signinbutton.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
@@ -83,14 +84,16 @@ class _SignupPageState extends State<SignupPage> {
                       TextButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) =>  LoginPage()));
+                                builder: (ctx) =>  const LoginPage()));
                           },
                           child: const Text(
                             'Login',
                             style: TextStyle(color: Colors.orange),
                           )),
                     ],
-                  )
+                  ),
+                  divider(),
+                 const  GoogleSignInButton()
                 ],
               ),
             ),
@@ -128,3 +131,38 @@ Widget textInput({controller, hint, icon}) {
     ),
   );
 }
+
+
+Widget divider() {
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 10),
+    child: Row(
+      children: const [
+        SizedBox(
+          width: 20,
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
+        ),
+        Text('or'),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Divider(
+              thickness: 1,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+      ],
+    ),
+  );
+}
+

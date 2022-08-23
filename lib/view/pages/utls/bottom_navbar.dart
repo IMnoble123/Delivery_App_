@@ -1,6 +1,6 @@
 import 'package:delivery/view/pages/Account_page.dart';
 import 'package:delivery/view/pages/cart_page.dart';
-import 'package:delivery/view/pages/categories.dart';
+import 'package:delivery/view/pages/search.dart';
 import 'package:delivery/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
@@ -16,7 +16,7 @@ class _NavigationPageState extends State<NavigationPage> {
   int _currentIndex = 0;
   final List pages = [
     const HomePage(),
-    const CategoriesPage(),
+    const SearchPage(),
     const AccountPage(),
     const CartPage(),
   ];

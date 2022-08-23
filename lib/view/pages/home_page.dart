@@ -1,3 +1,5 @@
+import 'package:delivery/view/pages/food_page.dart';
+import 'package:delivery/view/pages/widgets/cateory/food.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,10 +43,15 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                           onTap: () {
-                            print('new objects');
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (ctx) =>const  Foodpage()));
                           },
                           child: category(isActive: true, title: 'Foods')),
                       InkWell(
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(
+                                builder: (ctx) =>const FoodhomePage ()));
+                        },
                           child: category(isActive: true, title: 'Grocerys')),
                       InkWell(
                           child: category(isActive: true, title: 'Healthcare'))

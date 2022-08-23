@@ -102,27 +102,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "9.2.0"
-  form_field_validator:
+  http:
     dependency: "direct main"
     description:
-      name: form_field_validator
+      name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
-  get:
-    dependency: "direct main"
-    description:
-      name: get
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.6.5"
-  intl:
+    version: "0.13.5"
+  http_parser:
     dependency: transitive
     description:
-      name: intl
+      name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.17.0"
+    version: "4.0.1"
   lints:
     dependency: transitive
     description:

@@ -1,11 +1,9 @@
 import 'package:delivery/controller/login_pagecontroller.dart';
 import 'package:delivery/view/pages/utls/bottom_navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
 
 class LoginButtonPage extends StatelessWidget {
-  LoginButtonPage({Key? key}) : super(key: key);
-  final LoginController controller = Get.put(LoginController());
+  const LoginButtonPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
