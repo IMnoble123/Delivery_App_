@@ -11,19 +11,24 @@ class SearchPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        // leading: const Icon(Icons.arrow_back_ios,color: Colors.black,),
-        leadingWidth: 5,
-        title: const TextField(
-                decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                prefixIconColor: Colors.grey,
-                    hintText: "Search",
-                    hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
-                    border: InputBorder.none,
-                    fillColor: Color(0xfff3f3f4),
-                    filled: true),
-              ),
+        leading: const Icon(Icons.arrow_back,color: Colors.black,),
+        title: const Text("Search",style: TextStyle(fontSize: 18),) 
       ),
+      body: SizedBox(
+              height: 80,
+              width: double.infinity,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                child: TextField(
+                  decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.search),
+                      hintText: "Search here",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10))),
+                ),
+              ),
+            ),
       backgroundColor: Colors.white,
     );
   }

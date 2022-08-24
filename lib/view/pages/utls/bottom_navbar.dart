@@ -3,7 +3,6 @@ import 'package:delivery/view/pages/cart_page.dart';
 import 'package:delivery/view/pages/search.dart';
 import 'package:delivery/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({Key? key}) : super(key: key);
@@ -24,20 +23,23 @@ class _NavigationPageState extends State<NavigationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[_currentIndex],
-      bottomNavigationBar: SlidingClippedNavBar(
-        selectedIndex: _currentIndex,
-        onButtonPressed: (index) {
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
+        selectedFontSize: 11.0,
+        unselectedItemColor: Colors.grey,
+        unselectedFontSize: 11.0,
+        currentIndex: _currentIndex,
+        onTap: (newIndex) {
           setState(() {
-            _currentIndex = index;
+            _currentIndex = newIndex;
           });
         },
-        iconSize: 25,
-        activeColor: const Color(0xFF01579B),
-        barItems: [
-          BarItem(title: 'Home', icon: Icons.home),
-          BarItem(title: 'Search', icon: Icons.search),
-          BarItem(title: 'Account', icon: Icons.account_circle_outlined),
-          BarItem(title: 'Basket', icon: Icons.shopping_cart_outlined)
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.search),label: "search"),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined),label: "Account"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_shopping_cart),label: "cart")
         ],
       ),
     );

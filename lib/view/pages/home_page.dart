@@ -1,5 +1,6 @@
-import 'package:delivery/view/pages/food_page.dart';
+
 import 'package:delivery/view/pages/widgets/cateory/food.dart';
+import 'package:delivery/view/pages/widgets/image_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,8 +44,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) =>const  Foodpage()));
+
                           },
                           child: category(isActive: true, title: 'Foods')),
                       InkWell(
@@ -72,18 +72,20 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          Expanded(
-              child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                makeItem(image: 'assets/pizza21.jpg'),
-                makeItem(image: 'assets/pineapple.jpg'),
-                makeItem(image: 'assets/medicine1.jpg'),
-              ],
-            ),
-          )),
+        const  SlideShow(),
+
+          // Expanded(
+          //     child: Padding(
+          //   padding: const EdgeInsets.all(20.0),
+          //   child: ListView(
+          //     scrollDirection: Axis.horizontal,
+          //     children: [
+          //       makeItem(image: 'assets/pizza21.jpg'),
+          //       makeItem(image: 'assets/pineapple.jpg'),
+          //       makeItem(image: 'assets/medicine1.jpg'),
+          //     ],
+          //   ),
+          // )),
           const SizedBox(height: 30),
         ],
       )),

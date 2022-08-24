@@ -5,8 +5,6 @@ import 'package:delivery/view/pages/widgets/last_text.dart';
 import 'package:delivery/view/pages/widgets/login_button.dart';
 import 'package:delivery/view/pages/widgets/title.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -34,7 +32,7 @@ class LoginPage extends StatelessWidget {
                       height: height * .2,
                     ),
                     // title(),
-                    const TitlePage(),
+                     const TitlePage(size: 30),
                     const SizedBox(
                       height: 50,
                     ),
@@ -42,7 +40,7 @@ class LoginPage extends StatelessWidget {
                     const EmailPasswordWidgetPage(),
                     const SizedBox(height: 20),
                     // loginButton(),
-                     LoginButtonPage(),
+                     const LoginButtonPage(),
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       alignment: Alignment.centerRight,
