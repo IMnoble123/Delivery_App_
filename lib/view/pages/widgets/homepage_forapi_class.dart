@@ -31,6 +31,7 @@ class _LastExampleScreenState extends State<LastExampleScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        backgroundColor: Colors.white,
         title: const Text("Api Sample"),
         centerTitle: true,
       ),
@@ -51,7 +52,7 @@ class _LastExampleScreenState extends State<LastExampleScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ListTile(
-                              title: Text(snapshot.data!.results[index].categoryName.toString()),
+                              title: Text(snapshot.data!.results[index].categoryName.toString(),style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
                               subtitle: Text(snapshot.data!.results[index].categoryNo.toString()),
                               leading: CircleAvatar(
                                 backgroundImage: NetworkImage(snapshot.data!.results[index].thumbnail.toString()),

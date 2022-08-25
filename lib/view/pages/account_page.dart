@@ -71,9 +71,12 @@ class AccountPage extends StatelessWidget {
               ],
             ),
            const  SizedBox(height: 10),
-           const Divider(color: Color.fromARGB(255, 203, 201, 201),thickness: 6,),
+           const Divider(color: Color.fromARGB(255, 203, 201, 201)),
            const  SizedBox(height: 10),
            const SettingsPage(),
+           const SizedBox(height: 50),
+          
+
 
           ],
         ),

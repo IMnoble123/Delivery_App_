@@ -1,6 +1,6 @@
 import 'package:delivery/view/pages/Account_page.dart';
 import 'package:delivery/view/pages/cart_page.dart';
-import 'package:delivery/view/pages/search.dart';
+import 'package:delivery/view/pages/notification_page.dart';
 import 'package:delivery/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +37,7 @@ class _NavigationPageState extends State<NavigationPage> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search),label: "search"),
+          BottomNavigationBarItem(icon: Icon(Icons.notifications),label: "Notifications"),
           BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined),label: "Account"),
           BottomNavigationBarItem(icon: Icon(Icons.add_shopping_cart),label: "cart")
         ],

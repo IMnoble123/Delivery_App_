@@ -1,12 +1,18 @@
-
-import 'package:delivery/view/pages/food_page.dart';
-import 'package:delivery/view/pages/spalish_screen.dart';
 import 'package:delivery/view/pages/start_up_page.dart';
-import 'package:delivery/view/pages/widgets/cateory/food.dart';
-import 'package:delivery/view/pages/widgets/homepage_forapi_class.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+
+//  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+//     systemNavigationBarColor: Colors.transparent,
+//     statusBarBrightness: Brightness.light,
+//     statusBarColor: Colors.transparent,
+//     statusBarIconBrightness: Brightness.light,
+//     systemNavigationBarDividerColor: Colors.transparent,
+//     systemNavigationBarIconBrightness: Brightness.light,
+//   ));
+
   runApp(const MyApp());
 }
 
@@ -20,9 +26,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Delivery App',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.grey
       ),
-      home: const LastExampleScreen(),
+      home: const StaterPage() 
     );
   }
 }

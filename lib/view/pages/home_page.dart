@@ -1,173 +1,109 @@
 
-import 'package:delivery/view/pages/widgets/cateory/food.dart';
+import 'package:delivery/view/pages/widgets/container_cate.dart';
 import 'package:delivery/view/pages/widgets/image_slider.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        backgroundColor: Colors.grey[100],
-        elevation: 0,
-        leading: const Icon(null),
-      ),
-      body: SafeArea(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          Container(
+            width: double.infinity,
+            color: Colors.white,
+            height: height * 0.37,
+            child: Stack(
               children: [
-                Text(
-                  'Delivery',
-                  style: TextStyle(
-                      color: Colors.grey[80],
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: 50,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      InkWell(
-                          onTap: () {
-
-                          },
-                          child: category(isActive: true, title: 'Foods')),
-                      InkWell(
-                        onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) =>const FoodhomePage ()));
-                        },
-                          child: category(isActive: true, title: 'Grocerys')),
-                      InkWell(
-                          child: category(isActive: true, title: 'Healthcare'))
-                    ],
+                Container(
+                  height: height * 0.27,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        Color.fromARGB(255, 101, 235, 242),
+                        Color.fromARGB(255, 101, 242, 174),
+                        // Color.fromARGB(255, 41, 121, 184),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: height * 0.05),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 30),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                prefixIcon: const Icon(Icons.search),
+                                hintText: "Search here",
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: const [
+                          CategoriePage(
+                            title: "Grocery's",
+                            image: 'assets/medicine1.jpg',
+                          ),
+                          CategoriePage(
+                            title: 'Food items',
+                            image: 'assets/medicine1.jpg',
+                          ),
+                          CategoriePage(
+                            title: 'Medicines',
+                            image: 'assets/medicine1.jpg',
+                          ),
+                          CategoriePage(
+                            title: 'Medicines',
+                            image: 'assets/medicine1.jpg',
+                          ),
+                          CategoriePage(
+                            title: 'Medicines',
+                            image: 'assets/medicine1.jpg',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20),
+          const SizedBox(height: 20),
+          const Padding(
+            padding: EdgeInsets.all(10.0),
+            child: SlideShow(),
+          ),
+          const SizedBox(height: 25),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Text(
-              'Free Delivery',
-              style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+              'Newly Launched',
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
             ),
           ),
-        const  SlideShow(),
-
-          // Expanded(
-          //     child: Padding(
-          //   padding: const EdgeInsets.all(20.0),
-          //   child: ListView(
-          //     scrollDirection: Axis.horizontal,
-          //     children: [
-          //       makeItem(image: 'assets/pizza21.jpg'),
-          //       makeItem(image: 'assets/pineapple.jpg'),
-          //       makeItem(image: 'assets/medicine1.jpg'),
-          //     ],
-          //   ),
-          // )),
-          const SizedBox(height: 30),
         ],
-      )),
+      ),
     );
   }
-}
-
-Widget category({isActive, title}) {
-  return AspectRatio(
-    aspectRatio: isActive ? 3 : 2.5 / 1,
-    child: Container(
-      margin: const EdgeInsets.only(right: 10),
-      decoration: BoxDecoration(
-        color: isActive ? Colors.yellow[700] : Colors.white,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Align(
-          child: Text(
-        title,
-        style: TextStyle(
-            color: isActive ? Colors.white : Colors.grey[500],
-            fontWeight: isActive ? FontWeight.bold : FontWeight.w100,
-            fontSize: 18),
-      )),
-    ),
-  );
-}
-
-Widget makeItem({image}) {
-  return AspectRatio(
-    aspectRatio: 1 / 1.5,
-    child: GestureDetector(
-      child: Container(
-          margin: const EdgeInsets.only(right: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(
-                    colors: [
-                      Colors.black.withOpacity(.9),
-                      Colors.black.withOpacity(.3),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    stops: const [.2, .9])),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Align(
-                    alignment: Alignment.topRight,
-                    child: Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "\$10.00",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'items',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          )),
-    ),
-  );
 }

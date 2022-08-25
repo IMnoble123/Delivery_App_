@@ -16,9 +16,9 @@ class SlideShow extends StatelessWidget {
         autoPlayInterval: 5000,
         isLoop: true,
         children: [
-          Image.asset('assets/offer.jpg', fit: BoxFit.fill),
-          Image.asset('assets/offer2.jpg', fit: BoxFit.fill),
-          Image.asset('assets/offer3.jpeg',fit: BoxFit.fill),
+          Image.asset('assets/offer.jpg', fit: BoxFit.cover),
+          Image.asset('assets/offer2.jpg', fit: BoxFit.cover),
+          Image.asset('assets/offer3.jpeg',fit: BoxFit.cover),
           Image.asset(
             'assets/offer4.jpg',
             fit: BoxFit.fill,
