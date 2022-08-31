@@ -25,7 +25,7 @@ class  LasttextPage extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (ctx) => const SignupPage()));
+                      MaterialPageRoute(builder: (ctx) => SignupPage()));
                 },
                 child: const Text(
                   'Register',

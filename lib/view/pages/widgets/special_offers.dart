@@ -1,5 +1,6 @@
 import 'package:delivery/view/pages/utls/selection_title.dart';
 import 'package:delivery/view/pages/utls/size_config.dart';
+import 'package:delivery/view/pages/widgets/homepage_forapi_class.dart';
 import 'package:flutter/material.dart';
 
 class SpecialOffers extends StatelessWidget {
@@ -25,12 +26,19 @@ class SpecialOffers extends StatelessWidget {
           child: Row(
             children: [
               SpecialOfferCard(
-                image: "assets/Image Banner 2.png",
-                press: () {}, cateory: "Smartphone", numofBrands: 18,
+                image: "assets/Back.png",
+                press: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (ctx) => LastExampleScreen()));
+                },
+                cateory: "Brunch",
+                numofBrands: 18,
               ),
               SpecialOfferCard(
                 image: "assets/Image Banner 3.png",
-                press: () {}, cateory: 'Faction', numofBrands: 24,
+                press: () {},
+                cateory: 'Vegetables',
+                numofBrands: 24,
               ),
               SizedBox(width: getProportionateScreenWidth(20)),
             ],
@@ -98,7 +106,7 @@ class SpecialOfferCard extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const TextSpan(text: "numOfBrands Brands")
+                        const TextSpan(text: "numOfBrands")
                       ],
                     ),
                   ),

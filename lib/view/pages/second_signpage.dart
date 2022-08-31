@@ -1,21 +1,11 @@
+import 'package:delivery/controller/signupcontroller.dart';
 import 'package:delivery/view/pages/login_page.dart';
 import 'package:delivery/view/pages/widgets/google_signinbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class SignupPage extends StatefulWidget {
-  const  SignupPage({Key? key}) : super(key: key);
-
-  @override
-  State<SignupPage> createState() => _SignupPageState();
-}
-
-class _SignupPageState extends State<SignupPage> {
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  final RegExp emailRegex =  RegExp(
-      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+class SignupPage extends StatelessWidget {
+  const SignupPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +24,51 @@ class _SignupPageState extends State<SignupPage> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
             child: Form(
-              key: _formKey,
+              key: context.watch<SignUpProvider>().formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  textInput(hint: 'Username', icon: Icons.person),
-                  const SizedBox(height: 8,),
-                  textInput(hint: 'Email', icon: Icons.email_outlined),
-                    const SizedBox(height: 8,),
+                  textInput(
+                    hint: 'Username',
+                    icon: Icons.person,
+                    controller: context.watch<SignUpProvider>().nameController,
+                    validator: (value) =>
+                        context.read<SignUpProvider>().nameValidater(value!),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  textInput(
+                    hint: 'Email',
+                    icon: Icons.email_outlined,
+                    controller: context.watch<SignUpProvider>().emailController,
+                    validator: (value) =>
+                        context.read<SignUpProvider>().emailValidater(value!),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   textInput(
                     hint: 'Password',
                     icon: Icons.vpn_key,
+                    controller:
+                        context.watch<SignUpProvider>().passwordController,
+                    validator: (value) => context
+                        .read<SignUpProvider>()
+                        .passwordValidater(value!),
                   ),
-                    const SizedBox(height: 8,),
-                  textInput(hint: 'Confirm password', icon: Icons.vpn_key),
-                    const SizedBox(height: 12),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  textInput(
+                    hint: 'phonenumber',
+                    icon: Icons.phone,
+                    controller: context.watch<SignUpProvider>().phoneController,
+                    validator: (value) => context
+                        .read<SignUpProvider>()
+                        .phonenumberValidater(value!),
+                  ),
+                  const SizedBox(height: 12),
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -57,13 +77,13 @@ class _SignupPageState extends State<SignupPage> {
                         width: MediaQuery.of(context).size.width * 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              // Navigator.of(context).push(MaterialPageRoute(
-                              //     builder: (ctx) => const SuccesPage()));
-                              // print('Account created succesfully');
+                              context
+                                  .read<SignUpProvider>()
+                                  .validation(context);
                             },
                             style: ElevatedButton.styleFrom(
-                                primary:
-                                   const Color(0xfffbb448),),
+                              primary: const Color(0xfffbb448),
+                            ),
                             child: const Text(
                               'REGISTER',
                               style: TextStyle(
@@ -84,7 +104,7 @@ class _SignupPageState extends State<SignupPage> {
                       TextButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) =>  const LoginPage()));
+                                builder: (ctx) => const LoginPage()));
                           },
                           child: const Text(
                             'Login',
@@ -93,7 +113,7 @@ class _SignupPageState extends State<SignupPage> {
                     ],
                   ),
                   divider(),
-                 const  GoogleSignInButton()
+                  const GoogleSignInButton()
                 ],
               ),
             ),
@@ -104,7 +124,8 @@ class _SignupPageState extends State<SignupPage> {
   }
 }
 
-Widget textInput({controller, hint, icon}) {
+Widget textInput(
+    {controller, hint, icon, FormFieldValidator<String>? validator}) {
   return Container(
     margin: const EdgeInsets.only(top: 10),
     decoration: const BoxDecoration(
@@ -114,6 +135,7 @@ Widget textInput({controller, hint, icon}) {
     child: Padding(
       padding: const EdgeInsets.only(left: 10),
       child: TextFormField(
+        validator: validator,
         style: const TextStyle(fontSize: 15),
         controller: controller,
         decoration: InputDecoration(
@@ -127,11 +149,9 @@ Widget textInput({controller, hint, icon}) {
           ),
         ),
       ),
-
     ),
   );
 }
-
 
 Widget divider() {
   return Container(
@@ -165,4 +185,3 @@ Widget divider() {
     ),
   );
 }
-

@@ -1,9 +1,3 @@
-import 'dart:convert';
-
-Productmodel productmodelFromJson(String str) =>
-    Productmodel.fromJson(json.decode(str));
-
-String productmodelToJson(Productmodel data) => json.encode(data.toJson());
 
 class Productmodel {
   Productmodel({

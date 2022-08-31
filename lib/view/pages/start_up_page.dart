@@ -39,7 +39,7 @@ class _StaterPageState extends State<StaterPage> with TickerProviderStateMixin {
     });
 
     _animationController.forward().then((f) => Navigator.push(context,
-        PageTransition(type: PageTransitionType.fade, child:  LoginPage())));
+        PageTransition(type: PageTransitionType.fade, child:  const LoginPage())));
   }
 
   @override

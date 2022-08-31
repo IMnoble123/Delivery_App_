@@ -19,7 +19,7 @@ class SuccesPage extends StatelessWidget {
                 color: Colors.green.shade50,
                 child: const Padding(
                   padding:  EdgeInsets.fromLTRB(32,56,32,32),
-                  child: Text('Successful',style: TextStyle(fontSize: 15),),
+                  child: Text('Successfull',style: TextStyle(fontSize: 15),),
                 ),
               ),
               Positioned(

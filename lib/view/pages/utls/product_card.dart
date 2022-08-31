@@ -69,12 +69,8 @@ class ProductCard extends StatelessWidget {
                             : kSecondaryColor.withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),
-                      // child: SvgPicture.asset(
-                      //   "assets/icons/Heart Icon_2.svg",
-                      //   color: product.isFavourite
-                      //       ? Color(0xFFFF4848)
-                      //       : Color(0xFFDBDEE4),
-                      // ),
+                      child: Image.asset("assets/heart-thin-icon.png",
+                      color: product.isFavourite ? const Color(0xFFFF4848): const Color(0xFFDBDEE4),),
                     ),
                   ),
                 ],

@@ -12,11 +12,11 @@ class LastExampleScreen extends StatefulWidget {
 }
 
 class _LastExampleScreenState extends State<LastExampleScreen> {
+  
   Future<Productmodel> getProductApi() async {
     final response =
         await http.get(Uri.parse('http://10.0.2.2:8000/api/category/'));
     var data = jsonDecode(response.body.toString());
-    // print('...........................${response.body}');
     if (response.statusCode == 200) {
       return Productmodel.fromJson(data);
     } else {
@@ -26,7 +26,7 @@ class _LastExampleScreenState extends State<LastExampleScreen> {
 
   @override
   Widget build(
-    BuildContext context,
+    BuildContext context
   ) {
     return Scaffold(
       appBar: AppBar(
@@ -39,7 +39,7 @@ class _LastExampleScreenState extends State<LastExampleScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-           Expanded(
+            Expanded(
                 child: FutureBuilder<Productmodel>(
               future: getProductApi(),
               builder: (context, snapshot) {
@@ -52,10 +52,19 @@ class _LastExampleScreenState extends State<LastExampleScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ListTile(
-                              title: Text(snapshot.data!.results[index].categoryName.toString(),style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                              subtitle: Text(snapshot.data!.results[index].categoryNo.toString()),
+                              title: Text(
+                                snapshot.data!.results[index].categoryName
+                                    .toString(),
+                                style: const TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text(snapshot
+                                  .data!.results[index].categoryNo
+                                  .toString()),
                               leading: CircleAvatar(
-                                backgroundImage: NetworkImage(snapshot.data!.results[index].thumbnail.toString()),
+                                backgroundImage: NetworkImage(snapshot
+                                    .data!.results[index].thumbnail
+                                    .toString()),
                               ),
                             ),
                             SizedBox(
@@ -70,18 +79,18 @@ class _LastExampleScreenState extends State<LastExampleScreen> {
                                     padding: const EdgeInsets.only(right: 10),
                                     child: Container(
                                       height:
-                                          MediaQuery.of(context).size.height * .25,
-                                      width: MediaQuery.of(context).size.width * .5,
+                                          MediaQuery.of(context).size.height *
+                                              .25,
+                                      width: MediaQuery.of(context).size.width *
+                                          .5,
                                       decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                              image: NetworkImage(snapshot
-                                                  .data!
-                                                  .results[index]
-                                                  .thumbnail
-                                                  .toString()),
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(snapshot
+                                              .data!.results[index].thumbnail
+                                              .toString()),
+                                        ),
                                       ),
-                                     ),
                                     ),
                                   );
                                 },

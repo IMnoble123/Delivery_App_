@@ -9,9 +9,6 @@ class LoginButtonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // if (controller.formkey.currentState!.validate()) {
-        //   return;
-        // }
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (ctx) => const NavigationPage()));
       },
