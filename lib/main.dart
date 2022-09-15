@@ -1,3 +1,4 @@
+import 'package:delivery/controller/otp_controller.dart';
 import 'package:delivery/controller/signupcontroller.dart';
 import 'package:delivery/view/pages/start_up_page.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=>  SignUpProvider())
+        ChangeNotifierProvider(create: (_)=>  SignUpProvider()),
+        ChangeNotifierProvider(create:(_) => VerifyOtpProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

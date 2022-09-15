@@ -2,14 +2,14 @@ class SignInModel {
   SignInModel({
     required this.username,
     required this.email,
-    this.mobile,
+    required this.mobile,
     required this.password,
   });
 
 
   String username;
   String email;
-  dynamic mobile;
+  String mobile;
   String password;
 
   factory SignInModel.fromJson(Map<String, dynamic> json) => SignInModel(

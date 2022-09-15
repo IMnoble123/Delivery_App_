@@ -25,12 +25,6 @@ class TextEntryField extends StatelessWidget {
             TextFormField(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
-              // validator: (value) {
-              //   if (value!.contains('@gmail.com')) {
-              //     return "enter valid email";
-              //   }
-              //   return null;
-              // },
               decoration: const InputDecoration(
                   labelText: "Email or mobile phone number",
                   labelStyle: TextStyle(fontSize: 15, color: Colors.grey),
@@ -43,12 +37,6 @@ class TextEntryField extends StatelessWidget {
               controller:passwordController,
               keyboardType: TextInputType.text,
               obscureText: true,
-              // validator: (value) {
-              //   if (value!.isEmpty) {
-              //     return "password required";
-              //   }
-              //   return null;
-              // },
               decoration: const InputDecoration(
                   labelText: 'password',
                   labelStyle: TextStyle(fontSize: 15, color: Colors.grey),

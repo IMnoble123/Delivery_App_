@@ -1,6 +1,5 @@
 import 'package:delivery/model/signin_model.dart';
 import 'package:delivery/services/post_auth.dart';
-import 'package:delivery/view/pages/utls/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class SignUpProvider with ChangeNotifier {
@@ -49,9 +48,7 @@ class SignUpProvider with ChangeNotifier {
 
   validation(BuildContext context) {
     if (formKey.currentState!.validate()) {
-        authValidation();
-      return Navigator.of(context)
-          .push(MaterialPageRoute(builder: (ctx) => const NavigationPage()));
+        authValidation(context);
     
     } else {
       return;
@@ -60,10 +57,12 @@ class SignUpProvider with ChangeNotifier {
 
   // ********fuction calling post menthod for clas auth*********//
 
-  authValidation() {
+  authValidation(BuildContext context) {
     Auth().signAuth(SignInModel(
         username: nameController.text,
         email: emailController.text,
-        password: passwordController.text));
+        password: passwordController.text,
+        mobile: phoneController.text
+        ),context);
   }
 }
